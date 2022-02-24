@@ -2,16 +2,16 @@ class Movie < ApplicationRecord
   # Direct associations
 
   belongs_to :director,
-             :counter_cache => :filmography_count
+             counter_cache: :filmography_count
 
   has_many   :roles,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :actors,
-             :through => :roles,
-             :source => :actor
+             through: :roles,
+             source: :actor
 
   # Validations
 
@@ -20,5 +20,4 @@ class Movie < ApplicationRecord
   def to_s
     id
   end
-
 end
